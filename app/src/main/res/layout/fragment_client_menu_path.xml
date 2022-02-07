@@ -70,7 +70,7 @@
                 android:id="@+id/tvPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Телефон: "
+                android:text="Телефон: +998 "
                 android:textColor="@color/black"
                 />
 
@@ -78,7 +78,8 @@
                 android:id="@+id/etPhone"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:maxLength="9"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
