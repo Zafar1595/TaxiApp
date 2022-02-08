@@ -47,9 +47,22 @@ class ClientMenuPathFragment : Fragment() {
                         etSum.text.toString()
                     )
                 viewModel.sendOrderPath(orderPath)
+                viewModel.sendOrderPathResponse()
+                observeStatus()
+                llStatus.visibility = View.VISIBLE
             }
         }
         resultObserve()
+    }
+
+    private fun observeStatus() {
+        viewModel.sendOrderPathResponse.observe(viewLifecycleOwner){
+            if(it.status == true){
+                binding.ivStatusDefault.visibility = View.GONE
+                binding.ivStatusTrue.visibility = View.VISIBLE
+                binding.tvStatus.text = "Ваш заказ принят"
+            }
+        }
     }
 
     private fun resultObserve() {
@@ -58,7 +71,8 @@ class ClientMenuPathFragment : Fragment() {
                 ResourceState.SUCCESS -> {
                     showMessage("Success")
                     progressBar(false)
-                    findNavController().popBackStack()
+                    viewModel.sendOrderPathResponse()
+                    observeStatus()
                 }
                 ResourceState.LOADING -> {
                     progressBar(true)

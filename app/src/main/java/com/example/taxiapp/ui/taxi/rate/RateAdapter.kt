@@ -33,7 +33,7 @@ class RateAdapter : RecyclerView.Adapter<RateAdapter.ListViewHolder>() {
                 tvAdress.text = item.adress
                 tvPhone.text = item.phone
                 tvComent.text = item.coment
-                tvDistance.text = item.distance
+                tvDistance.text = "${item.distance} км"
             }
             itemView.setOnClickListener {
                 onItemClick.invoke(item)

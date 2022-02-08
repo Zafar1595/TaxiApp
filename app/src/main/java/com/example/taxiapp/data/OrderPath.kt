@@ -5,5 +5,6 @@ data class OrderPath(
     val adress: String,
     val phone: String,
     val coment: String? = null,
-    val sum: String? = null
+    val sum: String? = null,
+    val status: Boolean? = false
 )

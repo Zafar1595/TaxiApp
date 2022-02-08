@@ -29,7 +29,7 @@ class PathAdater : RecyclerView.Adapter<PathAdater.ListViewHolder>(){
                 tvAdress.text = item.adress
                 tvPhone.text = item.phone
                 tvComent.text = item.coment
-                tvSum.text = item.sum
+                tvSum.text = "${item.sum} сум"
             }
             itemView.setOnClickListener {
                 onItemClick.invoke(item)

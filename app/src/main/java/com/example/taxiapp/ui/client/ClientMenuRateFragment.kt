@@ -43,6 +43,9 @@ class MenuFragment : Fragment() {
                         etComent.text.toString(),
                     )
                 viewModel.sendOrderRate(orderRate)
+                viewModel.sendOrderRateResponse()
+                observeStatus()
+                llStatus.visibility = View.VISIBLE
             }
         }
         resultObserve()
@@ -55,7 +58,8 @@ class MenuFragment : Fragment() {
                 ResourceState.SUCCESS -> {
                     showMessage("Success")
                     progressBar(false)
-                    findNavController().popBackStack()
+                    viewModel.sendOrderPathResponse()
+                    observeStatus()
                 }
                 ResourceState.LOADING -> {
                     progressBar(true)
@@ -64,6 +68,16 @@ class MenuFragment : Fragment() {
                     showMessage(it.message!!)
                     progressBar(false)
                 }
+            }
+        }
+    }
+
+    private fun observeStatus() {
+        viewModel.sendOrderRateResponse.observe(viewLifecycleOwner){
+            if(it.status == true){
+                binding.ivStatusDefault.visibility = View.GONE
+                binding.ivStatusTrue.visibility = View.VISIBLE
+                binding.tvStatus.text = "Ваш заказ принят"
             }
         }
     }

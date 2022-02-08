@@ -8,5 +8,7 @@ data class OrderRate(
     val phone: String,
     val coment: String? = null,
     val distance: String? = null,
-    val location: Location? = null
+    val location: Location? = null,
+    var status: Boolean? = false
+
 )

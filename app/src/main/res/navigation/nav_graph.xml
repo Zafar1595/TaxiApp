@@ -33,7 +33,11 @@
         android:id="@+id/taxiFragment"
         android:name="com.example.taxiapp.ui.taxi.TaxiFragment"
         android:label="fragment_taxi"
-        tools:layout="@layout/fragment_taxi" />
+        tools:layout="@layout/fragment_taxi" >
+        <action
+            android:id="@+id/action_taxiFragment_to_moreFragment"
+            app:destination="@id/moreFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.taxiapp.ui.client.MenuFragment"
@@ -44,4 +48,9 @@
         android:name="com.example.taxiapp.ui.client.ClientMenuPathFragment"
         android:label="fragment_client_menu_path"
         tools:layout="@layout/fragment_client_menu_path" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.example.taxiapp.ui.taxi.more.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
 </navigation>
