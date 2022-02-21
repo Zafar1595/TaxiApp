@@ -33,6 +33,7 @@ class MainViewModel(private val db: FirebaseManager) : ViewModel() {
             }
         )
     }
+
     val orderPathAdded: MutableLiveData<OrderPath> = MutableLiveData()
     val orderPathModified: MutableLiveData<OrderPath> = MutableLiveData()
     val orderPathRemoved: MutableLiveData<OrderPath> = MutableLiveData()
@@ -49,17 +50,6 @@ class MainViewModel(private val db: FirebaseManager) : ViewModel() {
             }
         )
     }
-
-
-
-    val sendOrderRateResponse: MutableLiveData<OrderRate> = MutableLiveData()
-    fun sendOrderRateResponse() {
-        // Надо найти обект по id
-        //Если заказ принят то ответ надо записать в sendOrderRateResponse
-        sendOrderRateResponse.value =
-            OrderRate("dsafsdf", "Zmsda", "465465123", "vxcvewv", "6540", null, true)
-    }
-
 
     val sendOrderPath: MutableLiveData<Resource<String>> = MutableLiveData()
     fun sendOrderPath(orderPath: OrderPath) {
@@ -81,7 +71,17 @@ class MainViewModel(private val db: FirebaseManager) : ViewModel() {
         })
     }
 
-
     val rateDataMore: MutableLiveData<OrderRate> = MutableLiveData()
+
+    val checkIdResult: MutableLiveData<Resource<String>> = MutableLiveData()
+    fun checkID(idNumber: String, deviceId: String) {
+        checkIdResult.value = Resource.loading()
+        db.checkID(idNumber, deviceId, {
+            checkIdResult.value = Resource.success("success")
+        }, {
+            checkIdResult.value = Resource.error(it)
+        })
+    }
+
 
 }

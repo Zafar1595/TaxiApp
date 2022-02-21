@@ -11,10 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taxiapp.R
-import uz.taxi.taxiapp.TestOrder
-import uz.taxi.taxiapp.data.OrderRate
 import com.example.taxiapp.databinding.ViewPagerTaxiRateBinding
-import uz.taxi.taxiapp.di.ResourceState
 import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
 

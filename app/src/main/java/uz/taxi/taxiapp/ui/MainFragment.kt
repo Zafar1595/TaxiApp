@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_clientFragment)
         }
         binding.buttonTaxi.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_taxiFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_identificationFragment)
         }
 
     }

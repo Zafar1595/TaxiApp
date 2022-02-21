@@ -7,14 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.taxiapp.R
-import uz.taxi.taxiapp.TestOrder
-import uz.taxi.taxiapp.data.OrderPath
 import com.example.taxiapp.databinding.ViewPagerTaxiPathBinding
-import uz.taxi.taxiapp.di.ResourceState
 import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
 

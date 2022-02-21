@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import uz.taxi.taxiapp.TestOrder
 import uz.taxi.taxiapp.data.OrderRate
 import com.example.taxiapp.databinding.FragmentClientMenuRateBinding
 import uz.taxi.taxiapp.di.ResourceState
