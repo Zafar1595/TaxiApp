@@ -1,11 +1,14 @@
-package com.example.taxiapp.di
+package uz.taxi.taxiapp.di
 
-import com.example.taxiapp.ui.MainViewModel
+import com.google.firebase.firestore.FirebaseFirestore
+import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import uz.taxi.taxiapp.firebase.FirebaseManager
 
 val dataModule = module {
-//    single { FirebaseFirestore.getInstance() }
+    single { FirebaseFirestore.getInstance() }
+    single { FirebaseManager(get())}
 //    single { FirebaseManager(get()) }
 
 //    single { AuthManager(get()) }
@@ -16,7 +19,7 @@ val dataModule = module {
 }
 
 val viewModules = module {
-    viewModel { MainViewModel() }
+    viewModel { MainViewModel(get()) }
 //    viewModel { MainViewModel(get()) }
 //    viewModel { LoginViewModel(get()) }
 //    viewModel { MainViewModel(get()) }

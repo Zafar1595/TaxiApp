@@ -1,4 +1,4 @@
-package com.example.taxiapp.ui.client
+package uz.taxi.taxiapp.ui.client
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

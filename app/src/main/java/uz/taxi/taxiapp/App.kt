@@ -1,9 +1,9 @@
-package com.example.taxiapp
+package uz.taxi.taxiapp
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.taxiapp.di.dataModule
-import com.example.taxiapp.di.viewModules
+import uz.taxi.taxiapp.di.dataModule
+import uz.taxi.taxiapp.di.viewModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger

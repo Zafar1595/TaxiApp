@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1061686730055",
+    "project_id": "taxidaniyar",
+    "storage_bucket": "taxidaniyar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061686730055:android:39fd44b36ab40d14ef0062",
+        "android_client_info": {
+          "package_name": "uz.taxi.taxiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061686730055-uiok8p7lumnhetkcs353j2fp51lkdpsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-ZiXOI6J8GCosiCettcyKjk_719wL-sE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061686730055-uiok8p7lumnhetkcs353j2fp51lkdpsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

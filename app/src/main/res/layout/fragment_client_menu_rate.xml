@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".ui.client.MenuFragment">
+    tools:context="uz.taxi.taxiapp.ui.client.ClientMenuRateFragment">
 
     <TextView
         android:id="@+id/tvTitle"

@@ -1,4 +1,4 @@
-package com.example.taxiapp.ui.taxi.more
+package uz.taxi.taxiapp.ui.taxi.more
 
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.taxiapp.R
 import com.example.taxiapp.databinding.FragmentMoreBinding
-import com.example.taxiapp.di.ResourceState
-import com.example.taxiapp.ui.MainViewModel
+import uz.taxi.taxiapp.di.ResourceState
+import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
 
 class MoreFragment : Fragment(R.layout.fragment_more) {
@@ -39,9 +39,9 @@ class MoreFragment : Fragment(R.layout.fragment_more) {
         if(item != null){
             binding.apply {
                 tvAdress.text = "Адрес: ${item?.adress}"
-                tvPhone.text = "Телефон: ${item?.phone}"
+                tvPhone.text = "Телефон: ${item?.clientPhone}"
                 tvDistance.text = "Дистанция: ${item?.distance}"
-                tvComment.text = "Коментария: ${item?.coment}"
+                tvComment.text = "Коментария: ${item?.comment}"
                 buttonAccept.setOnClickListener {
                     item.status = true
 //                viewModel.acceptOrderRate(item!!)
@@ -59,21 +59,21 @@ class MoreFragment : Fragment(R.layout.fragment_more) {
     }
 
     private fun observeAcceptOrder() {
-        viewModel.acceptOrderRateResult.observe(viewLifecycleOwner) {
-            when (it.status) {
-                ResourceState.ERROR -> {
-                    showMessage(it.message)
-                    progressBar(false)
-                }
-                ResourceState.LOADING -> {
-                    progressBar(true)
-                }
-                ResourceState.SUCCESS -> {
-                    progressBar(false)
-                    startOrderProcess()
-                }
-            }
-        }
+//        viewModel.acceptOrderRateResult.observe(viewLifecycleOwner) {
+//            when (it.status) {
+//                ResourceState.ERROR -> {
+//                    showMessage(it.message)
+//                    progressBar(false)
+//                }
+//                ResourceState.LOADING -> {
+//                    progressBar(true)
+//                }
+//                ResourceState.SUCCESS -> {
+//                    progressBar(false)
+//                    startOrderProcess()
+//                }
+//            }
+//        }
     }
 
     private fun startOrderProcess() {

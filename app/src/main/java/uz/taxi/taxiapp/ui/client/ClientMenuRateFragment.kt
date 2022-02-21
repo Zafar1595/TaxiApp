@@ -1,4 +1,4 @@
-package com.example.taxiapp.ui.client
+package uz.taxi.taxiapp.ui.client
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.taxiapp.R
-import com.example.taxiapp.data.OrderPath
-import com.example.taxiapp.data.OrderRate
-import com.example.taxiapp.databinding.FragmentClientMenuPathBinding
+import uz.taxi.taxiapp.TestOrder
+import uz.taxi.taxiapp.data.OrderRate
 import com.example.taxiapp.databinding.FragmentClientMenuRateBinding
-import com.example.taxiapp.di.ResourceState
-import com.example.taxiapp.ui.MainViewModel
+import uz.taxi.taxiapp.di.ResourceState
+import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
 
-class MenuFragment : Fragment() {
+class ClientMenuRateFragment : Fragment() {
 
     private lateinit var binding: FragmentClientMenuRateBinding
     private val viewModel: MainViewModel by inject()
@@ -43,43 +40,42 @@ class MenuFragment : Fragment() {
                         etComent.text.toString(),
                     )
                 viewModel.sendOrderRate(orderRate)
-                viewModel.sendOrderRateResponse()
-                observeStatus()
+                resultObserve()
                 llStatus.visibility = View.VISIBLE
             }
         }
-        resultObserve()
 
     }
 
     private fun resultObserve() {
-        viewModel.sendOrderRate.observe(viewLifecycleOwner) {
-            when (it.status) {
+        viewModel.sendOrderRate.observe(viewLifecycleOwner){
+            when(it.status){
                 ResourceState.SUCCESS -> {
-                    showMessage("Success")
+                    //open status window
                     progressBar(false)
-                    viewModel.sendOrderPathResponse()
-                    observeStatus()
+                }
+                ResourceState.ERROR -> {
+                    it.message?.let { it1 -> showMessage(it1) }
+                    progressBar(false)
                 }
                 ResourceState.LOADING -> {
                     progressBar(true)
-                }
-                ResourceState.ERROR -> {
-                    showMessage(it.message!!)
-                    progressBar(false)
                 }
             }
         }
     }
 
     private fun observeStatus() {
-        viewModel.sendOrderRateResponse.observe(viewLifecycleOwner){
-            if(it.status == true){
-                binding.ivStatusDefault.visibility = View.GONE
-                binding.ivStatusTrue.visibility = View.VISIBLE
-                binding.tvStatus.text = "Ваш заказ принят"
-            }
-        }
+
+
+
+//        viewModel.sendOrderRateResponse.observe(viewLifecycleOwner){
+//            if(it.status == true){
+//                binding.ivStatusDefault.visibility = View.GONE
+//                binding.ivStatusTrue.visibility = View.VISIBLE
+//                binding.tvStatus.text = "Ваш заказ принят"
+//            }
+//        }
     }
 
     private fun progressBar(b: Boolean) {

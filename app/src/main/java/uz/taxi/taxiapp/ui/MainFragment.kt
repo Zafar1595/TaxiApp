@@ -1,13 +1,10 @@
-package com.example.taxiapp.ui
+package uz.taxi.taxiapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.taxiapp.R
 import com.example.taxiapp.databinding.FragmentMainBinding

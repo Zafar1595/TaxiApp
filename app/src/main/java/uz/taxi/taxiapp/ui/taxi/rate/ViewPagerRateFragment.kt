@@ -1,4 +1,4 @@
-package com.example.taxiapp.ui.taxi.rate
+package uz.taxi.taxiapp.ui.taxi.rate
 
 import android.content.Intent
 import android.net.Uri
@@ -7,14 +7,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taxiapp.R
-import com.example.taxiapp.data.OrderPath
-import com.example.taxiapp.data.OrderRate
+import uz.taxi.taxiapp.TestOrder
+import uz.taxi.taxiapp.data.OrderRate
 import com.example.taxiapp.databinding.ViewPagerTaxiRateBinding
-import com.example.taxiapp.di.ResourceState
-import com.example.taxiapp.ui.MainViewModel
+import uz.taxi.taxiapp.di.ResourceState
+import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
 
 class ViewPagerRateFragment : Fragment(R.layout.view_pager_taxi_rate) {
@@ -36,14 +37,10 @@ class ViewPagerRateFragment : Fragment(R.layout.view_pager_taxi_rate) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerView.adapter = adapter
-
         adapter.setOnClickListener { item ->
-
-
             viewModel.rateDataMore.value = item
             Log.d("item", viewModel.rateDataMore.value.toString())
             findNavController().navigate(R.id.action_taxiFragment_to_moreFragment)
-
             //item Click
         }
 
@@ -56,30 +53,35 @@ class ViewPagerRateFragment : Fragment(R.layout.view_pager_taxi_rate) {
         }
 
         viewModel.orderRateDataObserve()
+        progressBar(true)
         dataObserve()
     }
     private fun dataObserve() {
-        viewModel.orderRate.observe(viewLifecycleOwner){
-            when(it.status){
-                ResourceState.ERROR -> {
-                    showMessage(it.message)
-                }
-                ResourceState.LOADING -> {
-                    progressBar(true)
-                }
-                ResourceState.SUCCESS -> {
-                    adapter.items = it.data as MutableList<OrderRate>
-                }
+        viewModel.apply {
+            progressBar(false)
+            orderRateAdded.observe(viewLifecycleOwner){
+                progressBar(false)
+                adapter.add(it)
+            }
+            orderRateModified.observe(viewLifecycleOwner){
+                adapter.modified(it)
+            }
+            orderRateRemoved.observe(viewLifecycleOwner){
+                adapter.removed(it)
             }
         }
+
     }
 
     private fun progressBar(b: Boolean) {
-
+        binding.apply {
+            if(b) progressBar.visibility = View.VISIBLE
+            else progressBar.visibility = View.GONE
+        }
     }
 
     private fun showMessage(message: String?) {
-
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
 }

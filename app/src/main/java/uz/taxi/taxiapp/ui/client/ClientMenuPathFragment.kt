@@ -1,20 +1,17 @@
-package com.example.taxiapp.ui.client
+package uz.taxi.taxiapp.ui.client
 
-import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.taxiapp.R
-import com.example.taxiapp.data.OrderPath
+import uz.taxi.taxiapp.TestOrder
+import uz.taxi.taxiapp.data.OrderPath
 import com.example.taxiapp.databinding.FragmentClientMenuPathBinding
-import com.example.taxiapp.di.ResourceState
-import com.example.taxiapp.ui.MainViewModel
+import uz.taxi.taxiapp.di.ResourceState
+import uz.taxi.taxiapp.ui.MainViewModel
 import org.koin.android.ext.android.inject
-import java.util.*
 
 
 class ClientMenuPathFragment : Fragment() {
@@ -46,8 +43,9 @@ class ClientMenuPathFragment : Fragment() {
                         etComent.text.toString(),
                         etSum.text.toString()
                     )
+                TestOrder.orderPath.add(orderPath)
                 viewModel.sendOrderPath(orderPath)
-                viewModel.sendOrderPathResponse()
+//                viewModel.sendOrderPathResponse()
                 observeStatus()
                 llStatus.visibility = View.VISIBLE
             }
@@ -56,13 +54,13 @@ class ClientMenuPathFragment : Fragment() {
     }
 
     private fun observeStatus() {
-        viewModel.sendOrderPathResponse.observe(viewLifecycleOwner){
-            if(it.status == true){
-                binding.ivStatusDefault.visibility = View.GONE
-                binding.ivStatusTrue.visibility = View.VISIBLE
-                binding.tvStatus.text = "Ваш заказ принят"
-            }
-        }
+//        viewModel.sendOrderPathResponse.observe(viewLifecycleOwner){
+//            if(it.status == true){
+//                binding.ivStatusDefault.visibility = View.GONE
+//                binding.ivStatusTrue.visibility = View.VISIBLE
+//                binding.tvStatus.text = "Ваш заказ принят"
+//            }
+//        }
     }
 
     private fun resultObserve() {
@@ -71,7 +69,7 @@ class ClientMenuPathFragment : Fragment() {
                 ResourceState.SUCCESS -> {
                     showMessage("Success")
                     progressBar(false)
-                    viewModel.sendOrderPathResponse()
+//                    viewModel.sendOrderPathResponse()
                     observeStatus()
                 }
                 ResourceState.LOADING -> {

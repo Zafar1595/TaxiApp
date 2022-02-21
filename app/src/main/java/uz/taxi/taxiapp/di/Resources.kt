@@ -1,4 +1,4 @@
-package com.example.taxiapp.di
+package uz.taxi.taxiapp.di
 
 open class Resource<out T> constructor(val status: ResourceState, val data: T?, val message: String?) {
 

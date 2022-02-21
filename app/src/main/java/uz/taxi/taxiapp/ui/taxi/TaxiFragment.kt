@@ -1,16 +1,11 @@
-package com.example.taxiapp.ui.taxi
+package uz.taxi.taxiapp.ui.taxi
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.taxiapp.R
 import com.example.taxiapp.databinding.FragmentTaxiBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 

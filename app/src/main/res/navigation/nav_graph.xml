@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.taxiapp.ui.MainFragment"
+        android:name="uz.taxi.taxiapp.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/clientFragment"
-        android:name="com.example.taxiapp.ui.client.ClientFragment"
+        android:name="uz.taxi.taxiapp.ui.client.ClientFragment"
         android:label="fragment_client"
         tools:layout="@layout/fragment_client" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/taxiFragment"
-        android:name="com.example.taxiapp.ui.taxi.TaxiFragment"
+        android:name="uz.taxi.taxiapp.ui.taxi.TaxiFragment"
         android:label="fragment_taxi"
         tools:layout="@layout/fragment_taxi" >
         <action
@@ -40,17 +40,17 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.taxiapp.ui.client.MenuFragment"
+        android:name="uz.taxi.taxiapp.ui.client.ClientMenuRateFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_client_menu_rate" />
     <fragment
         android:id="@+id/clientMenuPathFragment"
-        android:name="com.example.taxiapp.ui.client.ClientMenuPathFragment"
+        android:name="uz.taxi.taxiapp.ui.client.ClientMenuPathFragment"
         android:label="fragment_client_menu_path"
         tools:layout="@layout/fragment_client_menu_path" />
     <fragment
         android:id="@+id/moreFragment"
-        android:name="com.example.taxiapp.ui.taxi.more.MoreFragment"
+        android:name="uz.taxi.taxiapp.ui.taxi.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
 </navigation>

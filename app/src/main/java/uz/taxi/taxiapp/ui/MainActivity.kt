@@ -1,4 +1,4 @@
-package com.example.taxiapp.ui
+package uz.taxi.taxiapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
