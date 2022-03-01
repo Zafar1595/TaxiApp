@@ -50,7 +50,7 @@ class IdentificationFragment : Fragment() {
     }
 
     private fun checkDeviceId() {
-        val shp: SharedPreferences = requireContext().getSharedPreferences("MySharedPref",
+        val shp: SharedPreferences = requireContext().getSharedPreferences("TaxiSharedPref",
             AppCompatActivity.MODE_PRIVATE
         )
         deviceId = shp.getString("deviceId", "")
@@ -64,7 +64,7 @@ class IdentificationFragment : Fragment() {
     }
     private fun saveDeviceId() {
         val sharedPreferences: SharedPreferences =
-            requireContext().getSharedPreferences("MySharedPref", AppCompatActivity.MODE_PRIVATE)
+            requireContext().getSharedPreferences("TaxiSharedPref", AppCompatActivity.MODE_PRIVATE)
         val myEditor: SharedPreferences.Editor = sharedPreferences.edit()
         myEditor.putString("deviceId", System.currentTimeMillis().toString())
         myEditor.apply()

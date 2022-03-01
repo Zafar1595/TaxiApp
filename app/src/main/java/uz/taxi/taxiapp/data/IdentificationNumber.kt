@@ -5,5 +5,6 @@ data class IdentificationNumber(
     var deviceId: String? = null,
     val identificationNumber: String = "",
     val taxiDriverId: String = "",
-    var startTime: String? = null
+    var startTime: String? = null,
+    var endTime: String? = null
 )

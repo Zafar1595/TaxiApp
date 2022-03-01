@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import uz.taxi.taxiapp.data.IdentificationNumber
 import uz.taxi.taxiapp.data.OrderPath
 import uz.taxi.taxiapp.data.OrderRate
+import uz.taxi.taxiapp.settings.Settings
 
 class FirebaseManager(private val instance: FirebaseFirestore) {
 
@@ -14,6 +15,7 @@ class FirebaseManager(private val instance: FirebaseFirestore) {
         const val ORDER_PATH = "OrderPath"
         const val ORDER_RATE = "OrdersRate"
         const val IDENTIFICATION_NUMBER = "IdentificationNumber"
+        const val ONE_HOUR_IN_MILLISECOND: Long = 3600000
     }
 
     /* fun getOrdersRate(
@@ -149,6 +151,8 @@ class FirebaseManager(private val instance: FirebaseFirestore) {
         if (idNumber.deviceId.isNullOrEmpty()) {
             idNumber.deviceId = deviceId
             idNumber.startTime = System.currentTimeMillis().toString()
+            idNumber.endTime = (idNumber.startTime!!.toLong() + ONE_HOUR_IN_MILLISECOND*24).toString()
+//            settings.endTime = idNumber.endTime!!
             //send idNumber
             instance.collection(IDENTIFICATION_NUMBER).document(documentId).set(idNumber)
                 .addOnSuccessListener {
@@ -161,6 +165,7 @@ class FirebaseManager(private val instance: FirebaseFirestore) {
         } else {
             onFailur.invoke("ID уже используется")
         }
+//        Log.d("Sett", settings.endTime)
     }
 
 }

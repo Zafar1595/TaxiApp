@@ -7,6 +7,7 @@ import uz.taxi.taxiapp.data.OrderPath
 import uz.taxi.taxiapp.data.OrderRate
 import uz.taxi.taxiapp.di.Resource
 import uz.taxi.taxiapp.firebase.FirebaseManager
+import uz.taxi.taxiapp.settings.Settings
 
 class MainViewModel(private val db: FirebaseManager) : ViewModel() {
 
